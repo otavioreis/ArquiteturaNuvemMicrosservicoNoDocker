@@ -1,18 +1,13 @@
 # ArquiteturaBackEndApiLivraria
 Projeto criado como resolução da Atividade da Aula 03 da disciplina Arquitetura de Nuvem do curso de pós-graduação de Arquitetura de Softwares Distribuídos e, requisitado pelo professor Marco Mendes.
 
-Tivemos como objetivo reaproveitar o projeto criado na disciplina de Arquitetura de Backend e Microsserviços que foi feita anterioramente a esta. 
-
 ## Grupo
 **_MATEUS SORIANO_** <br />
 **_OTÁVIO AUGUSTO DE QUEIROZ REIS_**
 
-Para ver a documentação do projeto original, por favor, acesse o repositório:
-https://github.com/otavioreis/ArquiteturaBackEndApiLivraria
+* [Passo 0 - Crie, teste e depois publique o seu projeto no GitHub](Passo0.md)
 
-Realizamos alguns ajustes para que este projeto fosse possível rodar no docker, pois o objetivo aqui é apenas de demonstrar os passos para a criação de um repositório docker utilizando o Windows 10 professional.
-
-A primeira coisa feita foi baixar o programa Docker CE for Windows através do link <br/>
+Após feito o check-in do códigos e ajustes a primeira coisa feita foi baixar o programa Docker CE for Windows através do link <br/>
 https://store.docker.com/editions/community/docker-ce-desktop-windows
 
 No caso optamos por utilizar os containers Linux ao invés de containers Windows, pois utilizando o containers Linux te possibilita o uso do kubernetes.
