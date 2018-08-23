@@ -12,6 +12,5 @@ RUN dotnet publish -c Release -o out
 #Optimize size
 FROM microsoft/aspnetcore:2.0
 WORKDIR /app
-EXPOSE 5000/tcp
 COPY --from=build-env /app/out ./
 ENTRYPOINT ["dotnet", "Livraria.Api.dll"]
