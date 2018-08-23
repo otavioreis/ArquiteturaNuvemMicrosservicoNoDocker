@@ -32,4 +32,15 @@ Como é possível verificar NGINX respondeu com o erro 503, indicando que está 
 Para este cenário eu precisei criar um novo método publico na minha API que não exigisse uma autenticação, uma vez que os demais métodos exigiam, para mostrar qual o ID do container que havia executado a requisição.
 ![alt text](https://i.snag.gy/gMJ9OR.jpg)
 
-Após criado o método repeti todo o procedimento para criar a imagem.
+Após criado o método repeti todo o procedimento para criar a imagem e então iniciei os containers apontando para o proxy criado.
+
+```powershell
+PS > docker run -d -p 5000 -e VIRTUAL_HOST=proxy.apilivraria --name teste apilivraria
+PS > docker run -d -p 5000 -e VIRTUAL_HOST=proxy.apilivraria --name teste apilivraria
+```
+
+Feito isso eu consegui acessar o endereço http://localhost/v1/public/Container e verifiquei que a cada requisição um container era o responsável pela resposta, conforme imagens abaixo:
+![alt text](https://i.snag.gy/xzKcPJ.jpg)
+![alt text](https://i.snag.gy/l2gUWa.jpg)
+
+* [Voltar](https://github.com/otavioreis/ArquiteturaNuvemMicrosservicoNoDocker)
