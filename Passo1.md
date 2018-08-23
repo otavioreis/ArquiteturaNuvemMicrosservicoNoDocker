@@ -68,4 +68,5 @@ Tendo a imagem construida e otimizada, bastou executar a imagem para a criação
 ```powershell
 PS .\Docker\ArquiteturaBackEndApiLivraria\ApiMicrosservicos\> docker run -d -p 80:5000 --name livrariaserver apilivraria
 ```
-
+Assim obtivemos sucesso e concluímos o primeiro exercício, conforme imagem de evidência:
+![alt text](https://i.snag.gy/nNHStJ.jpg)
