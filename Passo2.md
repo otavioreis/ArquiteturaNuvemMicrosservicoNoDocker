@@ -37,10 +37,13 @@ Após criado o método repeti todo o procedimento para criar a imagem e então i
 ```powershell
 PS > docker run -d -p 5000 -e VIRTUAL_HOST=proxy.apilivraria --name teste apilivraria
 PS > docker run -d -p 5000 -e VIRTUAL_HOST=proxy.apilivraria --name teste apilivraria
+PS > docker run -d -p 5000 -e VIRTUAL_HOST=proxy.apilivraria --name teste apilivraria
 ```
 
-Feito isso eu consegui acessar o endereço http://localhost/v1/public/Container e verifiquei que a cada requisição um container era o responsável pela resposta, conforme imagens abaixo:
-![alt text](https://i.snag.gy/xzKcPJ.jpg)
-![alt text](https://i.snag.gy/l2gUWa.jpg)
+Feito isso eu consegui acessar o endereço http://localhost/v1/public/Container e verifiquei que a cada requisição um container era o responsável pela resposta efetuando o (round-robin), conforme imagens abaixo:
+![alt text](https://i.snag.gy/CiYqTz.jpg)
+![alt text](https://i.snag.gy/yob0V5.jpg)
+![alt text](https://i.snag.gy/MIdgat.jpg)
+
 
 * [Voltar](https://github.com/otavioreis/ArquiteturaNuvemMicrosservicoNoDocker)
