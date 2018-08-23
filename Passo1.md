@@ -4,9 +4,9 @@ Abaixo os comandos que foram executados
 ```powershell
 PS > mkdir Docker
 PS .\Docker\> cd .\Docker\
-PS .\Docker\> git clone https://github.com/otavioreis/ArquiteturaBackEndApiLivraria
-PS .\Docker\> cd .\ArquiteturaBackEndApiLivraria\ApiMicrosservicos\
-PS .\Docker\ArquiteturaBackEndApiLivraria\ApiMicrosservicos\> bash -c "vi Dockerfile"
+PS .\Docker\> git clone https://github.com/otavioreis/ArquiteturaNuvemMicrosservicoNoDocker
+PS .\Docker\> cd .\ArquiteturaNuvemMicrosservicoNoDocker\ApiMicrosservicos\
+PS .\Docker\ArquiteturaNuvemMicrosservicoNoDocker\ApiMicrosservicos\> bash -c "vi Dockerfile"
 ```
 
 Após digitar o comando *bash -c "vi Dockerfile"* foi criado o documento DockerFile que já se encontra neste projeto. Através do link: <br/>
@@ -35,7 +35,7 @@ ENTRYPOINT ["dotnet", "Livraria.Api.dll"]
 
 Após criado o Dockerfile executamos o seguinte comando para criar o arquivo de .dockerignore
 ```powershell
-PS .\Docker\ArquiteturaBackEndApiLivraria\ApiMicrosservicos\> bash -c "vi .dockerignore"
+PS .\Docker\ArquiteturaNuvemMicrosservicoNoDocker\ApiMicrosservicos\> bash -c "vi .dockerignore"
 ```
 
 O arquivo pode ser acessado através do link: <br />
@@ -49,11 +49,11 @@ obj\
 Após criados os arquivos de configuração do Docker, os próximo passo foi de criar a imagem, rodando o comando abaixo:
 
 ```powershell
-PS .\Docker\ArquiteturaBackEndApiLivraria\ApiMicrosservicos\> docker build -t apilivraria .
+PS .\Docker\ArquiteturaNuvemMicrosservicoNoDocker\ApiMicrosservicos\> docker build -t apilivraria .
 ```
 Para verificar se a imagem havia sido criada com sucesso o comando foi executado:
 ```powershell
-PS .\Docker\ArquiteturaBackEndApiLivraria\ApiMicrosservicos\> docker images
+PS .\Docker\ArquiteturaNuvemMicrosservicoNoDocker\ApiMicrosservicos\> docker images
 ```
 O valor retornado foi:
 ```text
@@ -66,7 +66,7 @@ microsoft/aspnetcore         2.0                 db030c19e94b        7 days ago 
 
 Tendo a imagem construida e otimizada, bastou executar a imagem para a criação do container:
 ```powershell
-PS .\Docker\ArquiteturaBackEndApiLivraria\ApiMicrosservicos\> docker run -d -p 80:5000 --name livrariaserver apilivraria
+PS .\Docker\ArquiteturaNuvemMicrosservicoNoDocker\ApiMicrosservicos\> docker run -d -p 80:5000 --name livrariaserver apilivraria
 ```
 Assim obtivemos sucesso e concluímos o primeiro exercício, conforme imagem de evidência:
 ![alt text](https://i.snag.gy/nNHStJ.jpg)
