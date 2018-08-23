@@ -22,4 +22,8 @@ Como tudo do Windows a instalação basta clicar nos botões de avançar e pront
 Após atestado o sucesso na instalação, iniciamos os procedimentos para realizar a conteinerização do nosso aplicativo dotnet core dando início a resolução da atividade proposta.
 
 ## Resolução dos exercícios
-* [Passo 1 - ](Passo1.md)
+* [Passo 1 - Conteinerizar a aplicação com o Docker](Passo1.md)
+* [Passo 2 - Operar a aplicação com balanceamento de carga em 3 instâncias distintas](Passo2.md)
+* [Passo 3 - Operar a aplicação publicada no Azure como um conteiner Docker](Passo3.md)
+* [Passo 4 - Operar a aplicação como um serviço Docker Swarm](Passo4.md)
+* [Passo 5 - Resumo](Passo5.md)
