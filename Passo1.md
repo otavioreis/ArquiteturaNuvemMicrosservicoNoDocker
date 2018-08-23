@@ -1,4 +1,4 @@
-**Passo 1 - Conteinerizar a aplicação com o Docker**
+## Passo 1 - Conteinerizar a aplicação com o Docker
 
 Abaixo os comandos que foram executados
 ```powershell
