@@ -30,6 +30,6 @@ No linha:1 caractere:1
 Como é possível verificar NGINX respondeu com o erro 503, indicando que está ativo.
 
 Para este cenário eu precisei criar um novo método publico na minha API que não exigisse uma autenticação, uma vez que os demais métodos exigiam, para mostrar qual o ID do container que havia executado a requisição.
-![alt text](https://i.snag.gy/yHGhYV.jpg)
+![alt text](https://i.snag.gy/gMJ9OR.jpg)
 
 Após criado o método repeti todo o procedimento para criar a imagem.
