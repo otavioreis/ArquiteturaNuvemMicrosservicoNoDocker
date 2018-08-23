@@ -31,54 +31,62 @@ namespace Livraria.Api.Middleware
 
         public async Task Invoke(HttpContext context)
         {
-            var apiKey = ((FrameRequestHeaders)context.Request.Headers).HeaderAuthorization;
-            var apiHttpClient = new ApiHttpClient(apiKey, "http://localhost:61000/", _httpClient);
-
-
-            var userIsAuthenticated = context.User.Identity.IsAuthenticated;
-            var req = context.Request;
-            string bodyContent;
-            var queryString = req.QueryString.ToString();
-
-            // Allows using several time the stream in ASP.Net Core
-            req.EnableRewind();
-
-            using (StreamReader reader
-                = new StreamReader(req.Body, Encoding.UTF8, true, 1024, true))
+            try
             {
-                bodyContent = reader.ReadToEnd();
-            }
 
-            // Rewind, so the core is not lost when it looks the body for the request
-            req.Body.Position = 0;
+                var apiKey = ((FrameRequestHeaders)context.Request.Headers).HeaderAuthorization;
+                var apiHttpClient = new ApiHttpClient(apiKey, "http://localhost:61000/", _httpClient);
 
-            UsuarioLogin usuarioLogin = null;
 
-            if (userIsAuthenticated)
-            {
-                usuarioLogin = new UsuarioLogin
+                var userIsAuthenticated = context.User.Identity.IsAuthenticated;
+                var req = context.Request;
+                string bodyContent;
+                var queryString = req.QueryString.ToString();
+
+                // Allows using several time the stream in ASP.Net Core
+                req.EnableRewind();
+
+                using (StreamReader reader
+                    = new StreamReader(req.Body, Encoding.UTF8, true, 1024, true))
                 {
-                    Nome = context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value,
-                    Email = context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value,
-                    AuthTime = Convert.ToDateTime(context.User.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.AuthTime)?.Value, CultureInfo.InvariantCulture)
+                    bodyContent = reader.ReadToEnd();
+                }
+
+                // Rewind, so the core is not lost when it looks the body for the request
+                req.Body.Position = 0;
+
+                UsuarioLogin usuarioLogin = null;
+
+                if (userIsAuthenticated)
+                {
+                    usuarioLogin = new UsuarioLogin
+                    {
+                        Nome = context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value,
+                        Email = context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value,
+                        AuthTime = Convert.ToDateTime(context.User.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.AuthTime)?.Value, CultureInfo.InvariantCulture)
+                    };
+                }
+
+                var caminhoRequest = context.Request.Path;
+
+
+                var registroAuditoria = new RegistroAuditoria
+                {
+                    IsAuthenticated = userIsAuthenticated,
+                    Usuario = usuarioLogin,
+                    BodyContent = bodyContent,
+                    CaminhoRequest = caminhoRequest,
+                    QueryString = queryString
                 };
+
+                var resposta = await apiHttpClient.HttpClient.PostAsync("v1/private/auditoria", JsonConvert.SerializeObject(registroAuditoria));
+
+                await _next.Invoke(context);
             }
-
-            var caminhoRequest = context.Request.Path;
-
-
-            var registroAuditoria = new RegistroAuditoria
+            catch (Exception)
             {
-                IsAuthenticated = userIsAuthenticated,
-                Usuario = usuarioLogin,
-                BodyContent = bodyContent,
-                CaminhoRequest = caminhoRequest,
-                QueryString = queryString
-            };
-
-            var resposta = await apiHttpClient.HttpClient.PostAsync("v1/private/auditoria", JsonConvert.SerializeObject(registroAuditoria));
-
-            await _next.Invoke(context);
+                await _next.Invoke(context);
+            }
 
 
             // Clean up.
