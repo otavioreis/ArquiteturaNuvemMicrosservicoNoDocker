@@ -32,6 +32,22 @@ Como é possível verificar NGINX respondeu com o erro 503, indicando que está 
 Para este cenário eu precisei criar um novo método publico na minha API que não exigisse uma autenticação, uma vez que os demais métodos exigiam, para mostrar qual o ID do container que havia executado a requisição.
 ![alt text](https://i.snag.gy/gMJ9OR.jpg)
 
+O código é bem básico, apenas o suficiente para retornar o id do container.
+```csharp
+namespace Livraria.Api.Controllers.v1.pbl
+{
+    [Route("v1/public/[controller]")]
+    public class ContainerController : Controller
+    {
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return new OkObjectResult("Request processado pelo container id: " + System.Environment.MachineName);
+        }
+    }
+}
+```
+
 Após criado o método repeti todo o procedimento para criar a imagem e então iniciei os containers apontando para o proxy criado.
 
 ```powershell
