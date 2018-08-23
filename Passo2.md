@@ -43,7 +43,7 @@ PS > docker run -d -p 5000 -e VIRTUAL_HOST=proxy.apilivraria --name teste apiliv
 Feito isso eu consegui acessar o endereço http://localhost/v1/public/Container e verifiquei que a cada requisição um container era o responsável pela resposta efetuando o (round-robin), conforme imagens abaixo:
 ![alt text](https://i.snag.gy/CiYqTz.jpg)
 ![alt text](https://i.snag.gy/yob0V5.jpg)
-![alt text](https://i.snag.gy/MIdgat.jpg)
+![alt text](https://i.snag.gy/0JhwEc.jpg)
 
 
 * [Voltar](https://github.com/otavioreis/ArquiteturaNuvemMicrosservicoNoDocker)
