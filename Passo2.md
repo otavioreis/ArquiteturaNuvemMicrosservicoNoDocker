@@ -36,8 +36,8 @@ Após criado o método repeti todo o procedimento para criar a imagem e então i
 
 ```powershell
 PS > docker run -d -p 5000 -e VIRTUAL_HOST=proxy.apilivraria --name teste apilivraria
-PS > docker run -d -p 5000 -e VIRTUAL_HOST=proxy.apilivraria --name teste apilivraria
-PS > docker run -d -p 5000 -e VIRTUAL_HOST=proxy.apilivraria --name teste apilivraria
+PS > docker run -d -p 5000 -e VIRTUAL_HOST=proxy.apilivraria --name teste2 apilivraria
+PS > docker run -d -p 5000 -e VIRTUAL_HOST=proxy.apilivraria --name teste3 apilivraria
 ```
 
 Feito isso eu consegui acessar o endereço http://localhost/v1/public/Container e verifiquei que a cada requisição um container era o responsável pela resposta efetuando o (round-robin), conforme imagens abaixo:
