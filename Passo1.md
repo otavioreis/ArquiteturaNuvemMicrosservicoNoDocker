@@ -71,4 +71,12 @@ PS .\Docker\ArquiteturaBackEndApiLivraria\ApiMicrosservicos\> docker run -d -p 8
 Assim obtivemos sucesso e concluímos o primeiro exercício, conforme imagem de evidência:
 ![alt text](https://i.snag.gy/nNHStJ.jpg)
 
+Apenas a titulo de curiosidade eu consegui rodar o projeto utilizando o ambiente de playground do katacoda: <br/>
+https://www.katacoda.com/ 
+
+Veja a evidência (repare a URL no navegador rodando diretamente no ambiente do katacoda):
+![alt text](https://i.snag.gy/kBfvab.jpg)
+
+
+
 * [Voltar](https://github.com/otavioreis/ArquiteturaNuvemMicrosservicoNoDocker)
