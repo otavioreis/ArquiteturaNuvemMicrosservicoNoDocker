@@ -27,4 +27,5 @@ Após atestado o sucesso na instalação, iniciamos os procedimentos para realiz
 * [Passo 2 - Operar a aplicação com balanceamento de carga em 3 instâncias distintas](Passo2.md)
 * [Passo 3 - Operar a aplicação publicada no Azure como um conteiner Docker](Passo3.md)
 * [Passo 4 - Operar a aplicação como um serviço Docker Swarm](Passo4.md)
-* [Passo 5 - Resumo](Passo5.md)
+
+O passo 5 foi entregue diretamente na plataforma Google Classroom.
