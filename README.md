@@ -3,7 +3,8 @@ Projeto criado como resolução da Atividade da Aula 03 da disciplina Arquitetur
 
 ## Grupo
 **_MATEUS SORIANO_** <br />
-**_OTÁVIO AUGUSTO DE QUEIROZ REIS_**
+**_OTÁVIO AUGUSTO DE QUEIROZ REIS_**<br />
+**_FREDERICO BITENCOURT_**
 
 
 Abaixo realizamos a resolução do Passo 0:
