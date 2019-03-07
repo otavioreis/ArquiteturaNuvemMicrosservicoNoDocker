@@ -1,10 +1,8 @@
 # ArquiteturaBackEndApiLivraria
 Projeto criado como resolução da Atividade da Aula 03 da disciplina Arquitetura de Nuvem do curso de pós-graduação de Arquitetura de Softwares Distribuídos e, requisitado pelo professor Marco Mendes.
 
-## Grupo
-**_MATEUS SORIANO_** <br />
-**_OTÁVIO AUGUSTO DE QUEIROZ REIS_**<br />
-**_FREDERICO BITENCOURT_**
+## Aluno
+**_OTÁVIO AUGUSTO DE QUEIROZ REIS_**
 
 
 Abaixo realizamos a resolução do Passo 0:
